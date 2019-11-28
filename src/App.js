@@ -6,10 +6,11 @@ import Cart from "./components/Cart";
 import ProductDetails from "./components/ProductDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { products } from "./products";
 
 class App extends Component {
   state = {
-    products: []
+    products: products
   };
 
   render() {
