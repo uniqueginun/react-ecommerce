@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Collapse, Navbar, NavbarBrand, Nav, NavItem, Badge } from "reactstrap";
 import logo from "../logo.svg";
+import { ProductConsumer } from "../ProductContext";
 
 export default class NavBar extends Component {
   render() {
@@ -35,7 +36,14 @@ export default class NavBar extends Component {
               <NavItem className="ml-2">
                 <Link className="btn btn-secondary" to="/myCart">
                   <i className="fa fa-shopping-cart" aria-hidden="true"></i> My
-                  Cart <Badge color="danger">4</Badge>
+                  Cart{" "}
+                  <Badge color="danger">
+                    <ProductConsumer>
+                      {value => {
+                        return value.cart.length;
+                      }}
+                    </ProductConsumer>
+                  </Badge>
                 </Link>
               </NavItem>
             </Nav>
